@@ -1,0 +1,17 @@
+{
+  "name": "biot-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "clicore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ivan chikishev",
+  "license": "ISC",
+  "dependencies": {
+    "biot-core": "0.0.13",
+    "biot-networking": "git+https://github.com/IvanChikishev/biot_net_wslibrary.git",
+    "biot-rpc": "git+https://github.com/IvanChikishev/biot-rpc.git",
+    "commander": "^2.16.0"
+  }
+}
