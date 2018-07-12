@@ -21,7 +21,9 @@ const stateSequence = [
     biot.verifySign,
     biot.addCorrespondent,
     biot.removeCorrespondent,
-    biot.listCorrespondents
+    biot.listCorrespondents,
+    biot.sendTechMessageToDevice,
+    biot.sendTextMessageToDevice
 ];
 
 
@@ -97,6 +99,15 @@ program.command('listCorrespondents')
     .description('List of correspondents')
     .action(async () => console.absolute(await biot.removeCorrespondent()));
 
+program.command('sendTechMessageToDevice <deviceAddress> <object>')
+    .description("Sending tech message to device address")
+    .action(async (deviceAddress, object) => await biot.sendTechMessageToDevice(deviceAddress, object));
+
+program.command('sendTextMessageToDevice <deviceAddress> <message>')
+    .description('Sending text message to device address')
+    .action(async (deviceAddress, message) => await biot.sendTextMessageToDevice(deviceAddress, message));
+    
+
 program.command('initSocketRpc <host> <port>')
     .description('initializes the rpc socket')
     .action((host, port) => {
@@ -110,8 +121,8 @@ program.command('initSocketRpc <host> <port>')
 program.command('initSocketWs <host> <port>')
     .description('initializes the websocket')
     .action((host, port) => {
-        const net = require('biot-networking');
-        let service = net.init(net.bind(stateSequence),
+        const net = require('biot-wsocket');
+        let service = net.init(stateSequence,
             { host: host, port: port });
 
         console.absolute("Server is running");

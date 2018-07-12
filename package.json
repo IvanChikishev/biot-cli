@@ -3,18 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "./clicore.js",
-  "scripts": {
-  },
+  "scripts": {},
   "bin": {
-    "biot-cli" : "./clicore.js"
+    "biot-cli": "./clicore.js"
   },
   "author": "ivan chikishev",
   "license": "ISC",
   "preferGlobal": true,
   "dependencies": {
     "biot-core": "0.0.13",
-    "biot-networking": "git+https://github.com/IvanChikishev/biot_net_wslibrary.git",
-    "biot-rpc": "git+https://github.com/IvanChikishev/biot-rpc.git",
+    "biot-wsocket": "git+https://github.com/remmelgas/biot-wsocket.git",
+    "biot-rpc": "git+https://github.com/remmelgas/biot-rpc.git",
     "commander": "^2.16.0"
   }
 }
